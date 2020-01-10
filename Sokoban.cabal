@@ -1,0 +1,85 @@
+cabal-version: 1.12
+
+-- This file has been generated from package.yaml by hpack version 0.31.2.
+--
+-- see: https://github.com/sol/hpack
+--
+-- hash: f315e122d944707518bcd3a12f423a3b3cb8c5e94aed4b4b76eca98f86f2d8fb
+
+name:           Sokoban
+version:        0.1.0.0
+description:    Please see the README on GitHub at <https://github.com/screaminbug/Sokoban#readme>
+homepage:       https://github.com/screaminbug/Sokoban#readme
+bug-reports:    https://github.com/screaminbug/Sokoban/issues
+author:         Tomislav Strelar
+maintainer:     tstrelar@gmail.cm
+copyright:      2019 Tomislav Strelar
+license:        BSD3
+license-file:   LICENSE
+build-type:     Simple
+extra-source-files:
+    README.md
+    ChangeLog.md
+
+source-repository head
+  type: git
+  location: https://github.com/screaminbug/Sokoban
+
+library
+  exposed-modules:
+      Lib
+  other-modules:
+      Paths_Sokoban
+  hs-source-dirs:
+      src
+  build-depends:
+      base >=4.7 && <5
+    , gloss ==1.13.1.1
+    , proteaaudio ==0.7.1.0
+    , split ==0.2.3.3
+  default-language: Haskell2010
+
+executable Sokoban
+  main-is: Main.hs
+  other-modules:
+      Activities
+      Audio
+      Boxes
+      Combiner
+      Coord
+      Direction
+      Graph
+      GraphicsUtil
+      ListUtil
+      Maze
+      Player
+      Screens
+      State
+      Tiles
+      Paths_Sokoban
+  hs-source-dirs:
+      app
+  ghc-options: -threaded -rtsopts -with-rtsopts=-N
+  build-depends:
+      Sokoban
+    , base >=4.7 && <5
+    , gloss ==1.13.1.1
+    , proteaaudio ==0.7.1.0
+    , split ==0.2.3.3
+  default-language: Haskell2010
+
+test-suite Sokoban-test
+  type: exitcode-stdio-1.0
+  main-is: Spec.hs
+  other-modules:
+      Paths_Sokoban
+  hs-source-dirs:
+      test
+  ghc-options: -threaded -rtsopts -with-rtsopts=-N
+  build-depends:
+      Sokoban
+    , base >=4.7 && <5
+    , gloss ==1.13.1.1
+    , proteaaudio ==0.7.1.0
+    , split ==0.2.3.3
+  default-language: Haskell2010

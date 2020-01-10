@@ -1,0 +1,52 @@
+name:                Sokoban
+version:             0.1.0.0
+github:              "screaminbug/Sokoban"
+license:             BSD3
+author:              "Tomislav Strelar"
+maintainer:          "tstrelar@gmail.com"
+copyright:           "2019 Tomislav Strelar"
+
+extra-source-files:
+- README.md
+- ChangeLog.md
+
+# Metadata used when publishing your package
+# synopsis:            Short description of your package
+# category:            App category here
+
+# To avoid duplicated efforts in documentation and dealing with the
+# complications of embedding Haddock markup inside cabal files, it is
+# common to point users to the README.md file.
+description:         Please see the README on GitHub at <https://github.com/screaminbug/Sokoban#readme>
+
+dependencies:
+- base >= 4.7 && < 5
+- split == 0.2.3.3
+- gloss == 1.13.1.1
+- proteaaudio == 0.7.1.0
+
+
+library:
+  source-dirs: src
+
+executables:
+  Sokoban:
+    main:                Main.hs
+    source-dirs:         app
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    dependencies:
+    - Sokoban
+
+tests:
+  Sokoban-test:
+    main:                Spec.hs
+    source-dirs:         test
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    dependencies:
+    - Sokoban
