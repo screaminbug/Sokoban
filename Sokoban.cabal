@@ -4,7 +4,7 @@ cabal-version: 1.12
 --
 -- see: https://github.com/sol/hpack
 --
--- hash: f315e122d944707518bcd3a12f423a3b3cb8c5e94aed4b4b76eca98f86f2d8fb
+-- hash: f60471b59ae0e03ee859448b6f3cf2b81c92d0cfcecefa414800e46dd840d9f7
 
 name:           Sokoban
 version:        0.1.0.0
@@ -12,7 +12,7 @@ description:    Please see the README on GitHub at <https://github.com/screaminb
 homepage:       https://github.com/screaminbug/Sokoban#readme
 bug-reports:    https://github.com/screaminbug/Sokoban/issues
 author:         Tomislav Strelar
-maintainer:     tstrelar@gmail.cm
+maintainer:     tstrelar@gmail.com
 copyright:      2019 Tomislav Strelar
 license:        BSD3
 license-file:   LICENSE

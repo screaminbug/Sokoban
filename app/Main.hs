@@ -30,10 +30,13 @@ simSteps = 15
 exercise2 :: Activity State
 exercise2 = Activity initialState handleEvent drawState
 
+winScreen :: Color -> Float -> String -> Picture
+winScreen c o s = Pictures [color c (rectangleSolid 1080 1080), translate o 0 $ text s]
+
 showWin :: WinState -> Picture
 showWin isWon = case isWon of
-  LevelWon -> text "Level complete!"
-  GameWon  -> text "All done!"
+  LevelWon -> winScreen (makeColor 1.0 1.0 1.0 0.9) (-440) "Level complete!"
+  GameWon  -> winScreen (makeColor 1.0 0.4 0.5 0.9) (-240) "YOU WIN!!!"
   Playing  -> blank
 
 staticPicture :: Picture -> IO()

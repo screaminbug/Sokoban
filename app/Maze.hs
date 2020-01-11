@@ -18,6 +18,7 @@ import Combiner
 import Graph
 import Direction
 import ListUtil
+import GraphicsUtil
 
 data Maze = Maze Coord (Coord -> Tile)
 
@@ -33,7 +34,7 @@ isTileOfType expected actual
   | otherwise           = False
 
 drawTileAt :: (Coord -> Tile) -> Int -> Int -> Picture
-drawTileAt maze r c = translate (fromIntegral (r * 100)) (fromIntegral (c * 100)) (drawTile (noBoxMaze maze $ C r c))
+drawTileAt maze r c = translate (fromIntegral (r * 1) * s) (fromIntegral (c * 1) * s) (drawTile (noBoxMaze maze $ C r c))
 
 pictureOfMaze :: (Coord -> Tile) -> Picture
 pictureOfMaze maze = draw21times $ drawRow maze
@@ -70,13 +71,13 @@ pictureOfBools xs = translate (-fromIntegral k /2) (fromIntegral k) (go 0 xs)
         go _ [] = blank
         go i (b:bs) =
           Pictures 
-            [translate (fromIntegral (100 * (i `mod` k)))
-                       (-fromIntegral (100 * (i `div` k)))
+            [translate (fromIntegral (1 * (i `mod` k)) * s)
+                       (-fromIntegral (1 * (i `div` k)) * s)
                        (pictureOfBool b)
             , go (i+1) bs]
 
-        pictureOfBool True =  color green (circleSolid 40)
-        pictureOfBool False = color red   (circleSolid 40)
+        pictureOfBool True =  color green (circleSolid (0.4 * s))
+        pictureOfBool False = color red   (circleSolid (0.4 * s))
 
 closedMazesCheckPicture :: Picture
 closedMazesCheckPicture = pictureOfBools $ mapList isClosed extraMazes

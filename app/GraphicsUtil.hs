@@ -4,6 +4,9 @@ import Graphics.Gloss
 import Graphics.Gloss.Data.Vector
 import ListUtil
 
+s :: Float
+s = 50
+
 addV :: Vector -> Vector -> Vector
 addV (a,b) (c,d) = (a + c, b + d)
 

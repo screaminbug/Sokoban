@@ -17,36 +17,36 @@ bodyLine = thickLine 3
 
 player :: Direction -> Picture
 player R = Pictures 
-  [translate 0 30 cranium
-  ,bodyLine [(0,0),(30,5)]
-  ,bodyLine [(0,0),(30,-5)]
-  ,bodyLine [(0,-20),(0,10)]
-  ,bodyLine [(0,-20),(10,-50)]
-  ,bodyLine [(0,-20),(-10,-50)]]
-  where cranium = Pictures [circle 18, arcSolid 30 200 18]
+  [translate 0 (0.3 * s) cranium
+  ,bodyLine [(0,0),((0.3 * s), (0.05 * s))]
+  ,bodyLine [(0,0),((0.3 * s),-(0.05 * s))]
+  ,bodyLine [(0,(-0.2 * s)),(0,(0.1 * s))]
+  ,bodyLine [(0,(-0.2 * s)),((0.1 * s),-(0.5 * s))]
+  ,bodyLine [(0,(-0.2 * s)),(-(0.1 * s),-(0.5 * s))]]
+  where cranium = Pictures [circle (0.18 * s), arcSolid (0.3 * s) 200 (0.18 * s)]
   
 player L = scale (-1) 1 (player R)
 
 player U = Pictures 
-  [translate 0 30 cranium
-  ,bodyLine [(0,0),(30,5)]
-  ,bodyLine [(0,0),(-30,5)]
-  ,bodyLine [(0,-20),(0,10)]
-  ,bodyLine [(0,-20),(10,-50)]
-  ,bodyLine [(0,-20),(-10,-50)]]
-  where cranium = circleSolid 18
+  [translate 0 (0.3 * s) cranium
+  ,bodyLine [(0,0),((0.3 * s), (0.05 * s))]
+  ,bodyLine [(0,0),(-(0.3 * s),(0.05 * s))]
+  ,bodyLine [(0,(-0.2 * s)),(0,(0.1 * s))]
+  ,bodyLine [(0,(-0.2 * s)),((0.1 * s),-(0.5 * s))]
+  ,bodyLine [(0,(-0.2 * s)),(-(0.1 * s),-(0.5 * s))]]
+  where cranium = circleSolid (0.18 * s)
   
 player D = Pictures
-  [translate 0 30 cranium
-  ,bodyLine [(0,0),(30,-5)]
-  ,bodyLine [(0,0),(-30,-5)]
-  ,bodyLine [(0,-20),(0,10)]
-  ,bodyLine [(0,-20),(10,-50)]
-  ,bodyLine [(0,-20),(-10,-50)]]
+  [translate 0 (0.3 * s) cranium
+  ,bodyLine [(0,0),((0.3 * s), -(0.05 * s))]
+  ,bodyLine [(0,0),(-(0.3 * s),-(0.05 * s))]
+  ,bodyLine [(0,(-0.2 * s)),(0,(0.1 * s))]
+  ,bodyLine [(0,(-0.2 * s)),((0.1 * s),-(0.5 * s))]
+  ,bodyLine [(0,(-0.2 * s)),(-(0.1 * s),-(0.5 * s))]]
   where cranium = Pictures 
-                  [circle 18
-                  ,translate   5  6 (circleSolid 4)
-                  ,translate (-5) 6 (circleSolid 4)]
+                  [circle (0.18 * s)
+                  ,translate  (0.05 * s) (0.06 * s) (circleSolid (0.04 * s))
+                  ,translate (-0.05 * s) (0.06 * s) (circleSolid (0.04 * s))]
                 
 playerInMaze :: Direction -> Coord -> Picture
 playerInMaze direction coord = atCoord coord (player direction) 

@@ -2,6 +2,7 @@ module Coord where
 
 import Graphics.Gloss
 import Direction
+import GraphicsUtil
 
 data Coord = C Int Int
 instance Eq Coord where
@@ -9,7 +10,7 @@ instance Eq Coord where
   c1 /= c2 = not (c1 == c2)
 
 atCoord :: Coord -> Picture -> Picture
-atCoord (C x y) = translate (fromIntegral (100 * x)) (fromIntegral (100 * y))
+atCoord (C x y) = translate (fromIntegral (1 * x) * s) (fromIntegral (1 * y) * s)
 
 adjacentCoord :: Direction -> Coord -> Coord
 adjacentCoord R (C x y) = C (x+1)  y
